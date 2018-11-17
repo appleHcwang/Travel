@@ -10,7 +10,7 @@
 .header {
   display: flex;
   line-height:.86rem;
-  background:$bgColor;
+  background: $bgColor;
   color: #ffffff;
 }
 .header-left {
