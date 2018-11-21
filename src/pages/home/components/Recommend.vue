@@ -4,7 +4,7 @@
       热销推荐
     </div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList">
+      <li class="item border-bottom" v-for="item of list">
         <div class="item-img-wrapper">
           <img class="item-img" :src= 'item.imgUrl' />
         </div>
@@ -61,6 +61,9 @@
 <script>
 export default {
   name:'HomeRecommend',
+  props:{
+    list :Array()
+  },
   data () {
     return {msg: 'hello vue',
     recommendList: [

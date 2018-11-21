@@ -62,6 +62,9 @@ import index from '../../../router'
 
 export default {
   name:'HomeIcons',
+  props:{
+    list:Array()
+  },
   data () {
     return {
       swiperOption: {
@@ -118,7 +121,7 @@ export default {
   computed: {
     pages:function () {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         console.log(index+item);
         const page = Math.floor(index / 8)
         if (!pages[page]) {

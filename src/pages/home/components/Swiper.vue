@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
+    <swiper :options="swiperOption" v-if="showSwiper">
       <!-- slides -->
       <!--<swiper-slide><img class="swiper-img"-->
       <!--src="http://img1.qunarzz.com/piao/fusion/1801/1a/94428c6dea109402.jpg_640x200_2cf590d8.jpg"/>-->
@@ -14,7 +14,7 @@
       <!--<swiper-slide><img class="swiper-img"-->
       <!--src="http://img1.qunarzz.com/piao/fusion/1712/91/a275569091681d02.jpg_640x200_0519ccb9.jpg"/>-->
       <!--</swiper-slide>-->
-      <swiper-slide v-for="item of swiperList" :key="item.id">
+      <swiper-slide v-for="item of list" :key="item.id">
         <img  class="swiper-img" :src="item.imgUrl"/>
       </swiper-slide>
       <!-- Optional controls -->
@@ -41,6 +41,14 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props:{
+   list:Array()
+  },
+  computed:{
+    showSwiper:function () {
+      return this.list.length;
+    }
+  },
   data () {
     return {
       swiperOption: {

@@ -20,7 +20,6 @@
 </template>
 <style lang="stylus" scoped>
   .weekend-title {
-    margin-top: .2rem;
     background: #eee;
     line-height: .8rem;
     text-indent:.2rem;
@@ -50,6 +49,9 @@
 <script>
   export default {
     name:'HomeWeekend',
+    props:{
+      list: Array()
+    },
     data () {
       return {
         msg: 'hello vue',
