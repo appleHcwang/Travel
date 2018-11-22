@@ -1,6 +1,7 @@
 <template>
   <div>
-<CityHeader></CityHeader>
+    <CityHeader></CityHeader>
+    <CitySearch></CitySearch>
   </div>
 </template>
 <style>
@@ -9,6 +10,7 @@
 </style>
 <script>
   import CityHeader from './components/Header'
+  import CitySearch from './components/Search'
   export default {
     name: 'City',
     data () {
@@ -16,8 +18,9 @@
         msg: 'hello vue'
       }
     },
-    components:{
-    CityHeader
+    components: {
+      CityHeader,
+      CitySearch
     }
   }
 </script>
