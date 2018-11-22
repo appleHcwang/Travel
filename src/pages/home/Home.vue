@@ -37,19 +37,17 @@ export default {
   methods: {
     getHomeInfor () {
       console.log('测试')
-       // axios.get('/api/index.json').then(this.getHomeInfoSucc)
-     var url = 'https://www.ahzwfw.gov.cn/bsdt/bayWindow/listWindows.do?pageCode=HOME&_=1542786471585';
-      axios.get(url).then(this.getHomeInfoSucc)
+        axios.get('/api/index.json').then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
       console.log(res)
-      // res = res.data;
-      // if (res.ret && res.data) {
-      //   this.swiperList = res.data.swiperList;
-      //   this.iconList = res.data.iconList;
-      //   this.recommendList = res.data.recommendList;
-      //   this.weekendList = res.data.weekendList;
-      // }
+      res = res.data;
+      if (res.ret && res.data) {
+        this.swiperList = res.data.swiperList;
+        this.iconList = res.data.iconList;
+        this.recommendList = res.data.recommendList;
+        this.weekendList = res.data.weekendList;
+      }
     }
   },
   mounted () {
