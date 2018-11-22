@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HomeHeader></HomeHeader>
+    <HomeHeader :city = "city"></HomeHeader>
     <HomeSwiper :list = "swiperList"></HomeSwiper>
     <HomeIcons :list = "iconList"></HomeIcons>
     <HomeRecommend :list = "recommendList"></HomeRecommend>
@@ -51,6 +51,7 @@ export default {
     }
   },
   mounted () {
+    this.city = '北京';
     this.getHomeInfor()
   }
 
