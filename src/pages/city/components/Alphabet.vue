@@ -1,6 +1,12 @@
 <template>
   <ul class="list">
-    <li class="item" v-for="(item,key) of cities">{{key}}</li>
+    <li class="item" v-for="item of letters" :key="item" :ref="item"
+        @touchstart="handleTouchStart"
+        @touchmove="handleTouchMove"
+        @touchend="handleTouchEnd"
+        @click="handleLetterClick">
+      {{item}}
+    </li>
   </ul>
 </template>
 <style lang="stylus" scoped>
@@ -15,19 +21,49 @@
     width: 0.4rem;
     top: 1.58rem;
   }
+
   .item {
     text-align: center;
     line-height: .4rem;
-    color:$bgColor;
+    color: $ bgColor;
   }
 </style>
 <script>
   export default {
     name: 'CityAlphabet',
-    props:{
+    props: {
       cities: Object
     },
     data () {
-      return {msg: 'hello vue'}
+      return {
+        touchStatus: false
+      }
+    },
+    computed:{
+      letters () {
+        const letters = []
+       for (let i in this.cities) {
+         letters.push(i)
+       }
+       return letters
+      }
+    },
+    methods: {
+      handleLetterClick (e) {
+       this.$emit('change',e.target.innerText)
+      },
+
+      handleTouchStart () {
+        this.touchStatus = true
+      },
+      handleTouchMove (e) {
+        if (this.touchStatus) {
+
+        }
+      },
+      handleTouchEnd () {
+        this.touchStatus = false
+      }
     }
-  }</script>
+  }
+</script>
