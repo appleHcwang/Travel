@@ -27,8 +27,9 @@
    font-size: .4rem;
  }
 .header-right {
-  width: 1.24rem;
+  min-width: 1.04rem;
   float: right;
+  padding: 0 .1rem;
   text-align: center;
   color: #ffffff;
 }

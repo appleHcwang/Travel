@@ -2,7 +2,10 @@
  <template>
   <div id="app">
     <!--<img src="./assets/logo.png">-->
-    <router-view/>
+    <!--keep-alive该标签用于缓存页面-->
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 

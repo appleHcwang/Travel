@@ -27,6 +27,7 @@ export default {
   },
   data () {
     return {
+      lastCity: '',
       city: '',
       swiperList: [],
       iconList: [],
@@ -36,8 +37,8 @@ export default {
   },
   methods: {
     getHomeInfor () {
-      console.log('测试')
-        axios.get('/api/index.json').then(this.getHomeInfoSucc)
+      console.log('/api/index.json?city='+this.$store.state.city)
+        axios.get('/api/index.json?city='+this.$store.state.city).then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
       console.log(res)
@@ -51,8 +52,17 @@ export default {
     }
   },
   mounted () {
-    this.city = '北京';
+    this.city = this.$store.state.city;
+    this.lastCity = this.city;
     this.getHomeInfor()
+     console.log('mounted')
+  },
+  activated() {
+    if (this.lastCity !== this.city){
+      this.lastCity = this.city
+      this.getHomeInfor()
+    }
+    console.log('activated')
   }
 
 }
